@@ -1,3 +1,17 @@
+body {
+  background-color: #F4F6F6;
+}
+
+#addItem a {
+  color: black;
+  background: #F39C12;
+  border: none;
+}
+
+#addedItems {
+  height: 50vh;
+}
+
 button {
   margin: 0px auto;
   font-family: "Lucida Console", Monaco, monospace;
@@ -21,4 +35,15 @@ button.button-pulse {
   100% {
     box-shadow: inset 0px 0px 0px 2px #FFA000, 0px 0px 0px 3px #FB8C00;
   }
+}
+
+span {
+  color: white;
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 20px;
+  width: 4vh;
+  height: 4vh;
+  margin-left: 10px;
+  margin-right: 10px;
 }
