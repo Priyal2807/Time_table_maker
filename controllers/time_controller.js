@@ -4,13 +4,15 @@ var urlencodedParser = bodyParser.urlencoded({
 });
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/time_table', function(err) { // if the db does not exist it will create the database
+const conn = mongoose.createConnection('mongodb://localhost/time_table');
 
-  if (err) throw err;
-
-  console.log('Successfully connected');
-
+var timeSchema = new mongoose.Schema({
+  st: String,
+  et: String,
+  desc: String
 });
+
+var timeT = conn.model('timeT', timeSchema);
 
 module.exports = function(app) {
   app.get('/', (req, res) => {
@@ -18,7 +20,27 @@ module.exports = function(app) {
   });
 
   app.get('/timeTable', (req, res) => {
-    res.render('makeit');
+
+    timeT.find({}, function(err, data) {
+      if (err) throw err;
+
+      res.render('makeit', {
+        details: data
+      }); //this data comes from find method
+    });
+
+
+  });
+
+  app.post('/timeTable', urlencodedParser, (req, res) => {
+    var newItem = timeT(req.body).save(function(err, data) {
+      if (err)
+        throw err;
+
+      console.log("saved item");
+      res.json(data);
+    });
+
   });
 
 
