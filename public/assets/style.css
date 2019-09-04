@@ -9,7 +9,7 @@ body {
 }
 
 #addedItems {
-  height: 50vh;
+  display: inline-block;
 }
 
 button {
@@ -39,11 +39,18 @@ button.button-pulse {
 
 span {
   color: white;
-  border: 2px solid black;
-  border-radius: 20%;
+  border-radius: 7%;
   padding: 20px;
-  width: 4vh;
-  height: 4vh;
-  margin-left: 10px;
+  /* width: 25vh;
+  height: 4vh; */
+  height: auto;
+  margin-top: 10px;
+  margin-left: 20px;
   margin-right: 10px;
+  background: #AEB6BF;
+  box-shadow: 10px 10px 22px 1px rgba(0, 0, 0, 0.5);
+}
+
+.fas {
+  padding: 10px;
 }
