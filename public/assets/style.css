@@ -1,5 +1,6 @@
 body {
   background-color: #F4F6F6;
+  overflow-y: hidden;
 }
 
 #addItem a {
@@ -38,6 +39,7 @@ button.button-pulse {
 }
 
 span {
+  display: inline-block;
   color: white;
   border-radius: 7%;
   padding: 20px;
@@ -53,4 +55,16 @@ span {
 
 .fas {
   padding: 10px;
+}
+
+#Spanvalues {
+  background-color: #F9E79F;
+  height: 90vh;
+  float: right !important;
+  margin-top: -90vh;
+}
+
+#Uservalues {
+  height: 90vh;
+  background-color: #FAD7A0;
 }
