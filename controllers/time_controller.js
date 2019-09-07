@@ -7,6 +7,8 @@ var mongoose = require('mongoose');
 const conn = mongoose.createConnection('mongodb://localhost/time_table');
 
 var timeSchema = new mongoose.Schema({
+
+  tid: Number,
   st: String,
   et: String,
   desc: String
@@ -28,6 +30,14 @@ module.exports = function(app) {
         details: data
       }); //this data comes from find method
     });
+    app.delete('/timeTable/:val', (req, res) => {
+      timeT.find({
+        tid: req.params.val
+      }).deleteOne(function(err, data) {
+        if (err) throw err;
+        res.json(data);
+      })
+    })
 
 
   });
@@ -37,7 +47,6 @@ module.exports = function(app) {
       if (err)
         throw err;
 
-      console.log("saved item");
       res.json(data);
     });
 
