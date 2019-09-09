@@ -68,3 +68,25 @@ span {
   height: 90vh;
   background-color: #FAD7A0;
 }
+
+.myButton a {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  border-radius: 100px;
+  border: 0px solid #000;
+  margin-top: 70vh;
+  margin-left: 40vh;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.cell {
+  height: 80vh;
+  float: left;
+  display: inline-block;
+}
