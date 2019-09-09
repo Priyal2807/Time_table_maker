@@ -52,5 +52,8 @@ module.exports = function(app) {
 
   });
 
+  app.get('/generateTimeTable', (req, res) => {
+    res.render('timeTable');
+  });
 
 };
