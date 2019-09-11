@@ -53,7 +53,14 @@ module.exports = function(app) {
   });
 
   app.get('/generateTimeTable', (req, res) => {
-    res.render('timeTable');
+    timeT.find({}, function(err, data) {
+      if (err)
+        throw err;
+
+      res.render('timeTable', {
+        tt: data
+      });
+    });
   });
 
 };
