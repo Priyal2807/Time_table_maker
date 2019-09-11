@@ -1,6 +1,7 @@
 body {
   background-color: #F4F6F6;
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #addItem a {
@@ -86,7 +87,10 @@ span {
 }
 
 .cell {
-  height: 80vh;
   float: left;
   display: inline-block;
+}
+
+#ttRow>div {
+  border: 1px solid black;
 }
