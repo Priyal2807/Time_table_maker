@@ -25,16 +25,16 @@
     <% }  else { %>
 
     <% for(var i = 0;i<tt.length;i++) { %>
-    <div class="col-sm-2 cell bg-warning">
-      <p class="h5 text-monospace"><%= tt[i].tid %></p>
+    <div class="col-sm-2 cell">
+      <p class="h5 text-monospace"><%= tt[i].tid %>.</p>
     </div>
-    <div class="col-sm-2 cell bg-info">
+    <div class="col-sm-2 cell">
       <p class="h5 text-monospace"><%= tt[i].st %></p>
     </div>
-    <div class="col-sm-2 cell bg-warning">
+    <div class="col-sm-2 cell">
       <p class="h5 text-monospace"><%= tt[i].et %></p>
     </div>
-    <div class="col-sm-6 cell bg-info">
+    <div class="col-sm-6 cell">
       <p class="h5 text-monospace"><%= tt[i].desc %></p>
     </div>
     <% } %>
