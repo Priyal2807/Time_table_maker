@@ -2,8 +2,11 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
+var ejs = require('ejs');
 var mongoose = require('mongoose');
-
+var fs = require('fs');
+var pdf = require('html-pdf');
+var path = require("path");
 const conn = mongoose.createConnection('mongodb://localhost/time_table');
 
 var timeSchema = new mongoose.Schema({
@@ -63,4 +66,49 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/download', (req, res) => {
+    timeT.find({}, function(err, data) {
+      res.render("timeTable", {
+        tt: data
+      }, function(err, html) {
+        pdf.create(html).toFile('./public/pdf/timeT.pdf', function(err, res) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(res);
+          }
+        });
+
+        res.send(html);
+      });
+    });
+    // ejs.renderFile(path.join(__dirname, '../views/', "timeTable.ejs"), (err, data) => {
+    //   console.log(data);
+    //   if (err) {
+    //     //console.log(err);
+    //     res.send(err);
+    //   } else {
+    //
+    //     let options = {
+    //       "height": "11.25in",
+    //       "width": "8.5in",
+    //       "header": {
+    //         "height": "20mm"
+    //       },
+    //       "footer": {
+    //         "height": "20mm",
+    //       },
+    //     };
+    //     pdf.create(data, options).toFile("./timet.pdf", function(err, data) {
+    //       console.log("hello");
+    //       if (err) {
+    //         res.send(err);
+    //       } else {
+    //         res.send("File created successfully");
+    //       }
+    //     });
+    //   }
+    // });
+
+  });
 };
