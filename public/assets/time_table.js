@@ -5,7 +5,7 @@ $(function() {
     var sti = $("#inpTimestart").val();
     var eti = $('#inpTimeend').val();
     var desci = $('#inpDesc').val();
-    if (!$("#inpTimestart").val() || !$('#inpTimeend').val() || !$('#inpDesc').val()) {
+    if (!$('#sno').val() || !$("#inpTimestart").val() || !$('#inpTimeend').val() || !$('#inpDesc').val()) {
       alert("Enter value");
       return;
     }
@@ -15,7 +15,7 @@ $(function() {
       et: eti,
       desc: desci
     };
-    $.ajax({ //this ajax request is fired when this url / todo is hit
+    $.ajax({ //this ajax request is fired when this url / time table is hit
       type: 'POST',
       url: '/timeTable',
       data: newDet,
